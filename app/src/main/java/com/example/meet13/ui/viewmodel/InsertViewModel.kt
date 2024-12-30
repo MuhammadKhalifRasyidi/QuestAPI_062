@@ -1,8 +1,6 @@
 package com.example.meet13.ui.viewmodel
 
-
 import com.example.meet13.model.Mahasiswa
-
 
 
 
@@ -24,11 +22,17 @@ data class InsertUiEvent(
 
 fun InsertUiEvent.toMhs(): Mahasiswa = Mahasiswa(
     nim = nim,
-    nama = nama, alamat = alamat,
-    jenisKelamin = jenisKelamin, kelas = kelas,
+    nama = nama,
+    alamat = alamat,
+    jenisKelamin = jenisKelamin,
+    kelas = kelas,
     angkatan = angkatan
 )
 
+
+fun Mahasiswa.toUiStateMhs(): InsertUiState = InsertUiState(
+    insertUiEvent = toInsertUiEvent()
+)
 
 
 fun Mahasiswa.toInsertUiEvent(): InsertUiEvent = InsertUiEvent(
